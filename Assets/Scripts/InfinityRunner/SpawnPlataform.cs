@@ -54,7 +54,7 @@ namespace InfinityRunner
             for (int i = 0; i < plataforms.Count; i++)
             {
                 GameObject plataform = plataforms[i];
-                Vector2 position = new Vector2(spawnDistanceOffSet * i, 0);
+                Vector2 position = new Vector2(spawnDistanceOffSet * i, -5);
 
                 GameObject plataformInstance = Instantiate(plataform, position, transform.rotation);
 
