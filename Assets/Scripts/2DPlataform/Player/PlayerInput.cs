@@ -20,6 +20,7 @@ public class PlayerInput : MonoBehaviour
     private bool shootWasPressed;
     public bool ShootWasPressed { get => shootWasPressed; private set => shootWasPressed = value; }
 
+    public bool IsMoveingLeft { get => MoveDirection.x < 0; }
 
     private void OnEnable()
     {
