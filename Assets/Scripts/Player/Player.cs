@@ -4,6 +4,8 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerMovement))]
 public class Player : MonoBehaviour
 {
+    public PlayerMovementType PlayerMovementType;
+
     private PlayerMovement playerMovement;
     private PlayerInput playerInput;
     private PlayerAnimator playerAnimator;
@@ -44,6 +46,20 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
-        playerMovement.Move(playerInput.MoveDirection);
+        ExecuteMovementType();
+    }
+
+    private void ExecuteMovementType()
+    {
+        switch (PlayerMovementType)
+        {
+            case PlayerMovementType.ControlledHorizontalLinearVelocity:
+                playerMovement.Move(playerInput.MoveDirection);
+                break;
+
+            case PlayerMovementType.ConstantHorizontalLinearVelocity:
+                playerMovement.Move();
+                break;
+        }
     }
 }

@@ -3,7 +3,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerMovement : MonoBehaviour
 {
-    private Rigidbody2D rigidbodyPhysic;
+    private Rigidbody2D playerRigidbody;
 
     [SerializeField]
     private float movementSpeed;
@@ -17,16 +17,20 @@ public class PlayerMovement : MonoBehaviour
     private bool isFlying;
     public bool IsFlying { get => isFlying; private set => isFlying = value; }
 
+
     private void Awake()
     {
-        rigidbodyPhysic = GetComponent<Rigidbody2D>();
+        playerRigidbody = GetComponent<Rigidbody2D>();
     }
 
     public void Jump()
     {
-        rigidbodyPhysic.AddForceAtPosition(new Vector2(0, jumpForce), Vector2.up, ForceMode2D.Impulse);
-        isTouchingGround = false;
-        isFlying = true;
+        if (IsTouchingGround)
+        {
+            playerRigidbody.AddForceAtPosition(new Vector2(0, jumpForce), Vector2.up, ForceMode2D.Impulse);
+            IsTouchingGround = false;
+            IsFlying = true;
+        }
     }
 
     public void Shoot()
@@ -36,13 +40,18 @@ public class PlayerMovement : MonoBehaviour
 
     public void Move(Vector2 input)
     {
-        rigidbodyPhysic.linearVelocity = new Vector2(input.x * movementSpeed, rigidbodyPhysic.linearVelocityY);
+        playerRigidbody.linearVelocity = new Vector2(input.x * movementSpeed, playerRigidbody.linearVelocityY);
+    }
+    public void Move()
+    {
+        playerRigidbody.linearVelocityX = movementSpeed;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.collider.gameObject.CompareTag("Ground"))
         {
+            print("Caiu no chão");
             IsTouchingGround = true;
             IsFlying = false;
         }

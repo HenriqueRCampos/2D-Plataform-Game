@@ -9,7 +9,7 @@ namespace InfinityRunner
     {
         [SerializeField]
         private List<GameObject> plataforms = new List<GameObject>();
-        private List<Transform> plataformsPool = new List<Transform>();
+        private readonly List<Transform> plataformsPool = new List<Transform>();
 
         [SerializeField]
         private float spawnDistanceOffSet = 30f;
