@@ -279,6 +279,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4396069904475622020, guid: 7ee1d63ffb04f044887e5ff4635a3106, type: 3}
+      propertyPath: jumpForce
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 5240429944517291264, guid: 7ee1d63ffb04f044887e5ff4635a3106, type: 3}
       propertyPath: m_Name
       value: Player
@@ -383,9 +387,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   plataforms:
   - {fileID: 7290421304953622313, guid: 19ed8f1c66afb114eaee008f3c12e904, type: 3}
-  - {fileID: 5936498393396632798, guid: d56dc1388ab24ae41818f39cd06aebb5, type: 3}
   - {fileID: 407730195218214556, guid: 28aed59f065ab45459858844aceba6b6, type: 3}
+  - {fileID: 5936498393396632798, guid: d56dc1388ab24ae41818f39cd06aebb5, type: 3}
   spawnDistanceOffSet: 30
+  spawnVerticalPosition: -4.5
   distanceToResetPlataform: 3
 --- !u!4 &1679109907
 Transform:

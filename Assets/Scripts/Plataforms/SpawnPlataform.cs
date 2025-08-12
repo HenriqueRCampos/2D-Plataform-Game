@@ -7,16 +7,13 @@ namespace InfinityRunner
 {
     public class SpawnPlataform : MonoBehaviour
     {
-        [SerializeField]
-        private List<GameObject> plataforms = new List<GameObject>();
+        [SerializeField] private List<GameObject> plataforms = new List<GameObject>();
+        [SerializeField] private float spawnDistanceOffSet = 30f;
+        [SerializeField] private float spawnVerticalPosition = -4f;
+        [SerializeField] private float distanceToResetPlataform = 3f;
+
+        private float nextPlataformOffSet;
         private readonly List<Transform> plataformsPool = new List<Transform>();
-
-        [SerializeField]
-        private float spawnDistanceOffSet = 30f;
-        private float nextOffSet;
-
-        [SerializeField]
-        private float distanceToResetPlataform = 3f;
 
         private Transform playerTransform;
         private Transform currentPlataformPoint;
@@ -54,13 +51,13 @@ namespace InfinityRunner
             for (int i = 0; i < plataforms.Count; i++)
             {
                 GameObject plataform = plataforms[i];
-                Vector2 position = new Vector2(spawnDistanceOffSet * i, -5);
+                Vector2 position = new Vector2(spawnDistanceOffSet * i, spawnVerticalPosition);
 
                 GameObject plataformInstance = Instantiate(plataform, position, transform.rotation);
 
                 plataformsPool.Add(plataformInstance.transform);
 
-                nextOffSet += spawnDistanceOffSet;
+                nextPlataformOffSet += spawnDistanceOffSet;
             }
 
             currentPlataformPoint = GetCurrentPlataform().FinalPoint;
@@ -68,8 +65,8 @@ namespace InfinityRunner
 
         private void Pooling(GameObject plataform)
         {
-            plataform.transform.position = new Vector2(nextOffSet, 0);
-            nextOffSet += spawnDistanceOffSet;
+            plataform.transform.position = new Vector2(nextPlataformOffSet, spawnVerticalPosition);
+            nextPlataformOffSet += spawnDistanceOffSet;
         }
 
         private void ResetPlataformPosition()
