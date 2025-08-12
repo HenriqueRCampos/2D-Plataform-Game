@@ -312,6 +312,26 @@ PrefabInstance:
       propertyPath: PlayerMovementType
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7193212623130787856, guid: 7ee1d63ffb04f044887e5ff4635a3106, type: 3}
+      propertyPath: colliderLeftOffset.x
+      value: -0.1654751
+      objectReference: {fileID: 0}
+    - target: {fileID: 7193212623130787856, guid: 7ee1d63ffb04f044887e5ff4635a3106, type: 3}
+      propertyPath: colliderLeftOffset.y
+      value: -0.01873183
+      objectReference: {fileID: 0}
+    - target: {fileID: 7193212623130787856, guid: 7ee1d63ffb04f044887e5ff4635a3106, type: 3}
+      propertyPath: colliderRightOffset.x
+      value: 0.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 7193212623130787856, guid: 7ee1d63ffb04f044887e5ff4635a3106, type: 3}
+      propertyPath: colliderRightOffset.y
+      value: -0.01873183
+      objectReference: {fileID: 0}
+    - target: {fileID: 7193212623130787856, guid: 7ee1d63ffb04f044887e5ff4635a3106, type: 3}
+      propertyPath: colliderOffset.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
